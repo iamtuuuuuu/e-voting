@@ -63,7 +63,7 @@ describe('first-app', () => {
   it('init candidate', async () => {
     const now = Math.floor(new Date().getTime() / 1000)
     const startTime = new anchor.BN(now)
-    const endTime = new anchor.BN(now + 5)
+    const endTime = new anchor.BN(now + 20)
 
     await program.rpc.initializeCandidate(startTime, endTime, {
       accounts: {
@@ -118,6 +118,6 @@ describe('first-app', () => {
         },
         signers: [],
       })
-    }, 5000)
+    }, 20000)
   })
 })

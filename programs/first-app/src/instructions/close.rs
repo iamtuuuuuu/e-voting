@@ -49,17 +49,17 @@ pub fn exec(ctx: Context<Close>) -> Result<()> {
     ]];
 
     let transfer_ctx = CpiContext::new_with_signer(
-        ctx.accounts.candidate.to_account_info(), 
+        ctx.accounts.candidate.to_account_info(),
         token::Transfer {
-                from: ctx.accounts.candidate_account_token.to_account_info(),
-                to: ctx.accounts.voter_token_account.to_account_info(),
-                authority: ctx.accounts.authority.to_account_info()
-            },
-        seeds
+            from: ctx.accounts.candidate_account_token.to_account_info(),
+            to: ctx.accounts.voter_token_account.to_account_info(),
+            authority: ctx.accounts.authority.to_account_info(),
+        },
+        seeds,
     );
 
     token::transfer(transfer_ctx, ballot.amount)?;
     ballot.amount = 0;
-    
+
     Ok(())
 }

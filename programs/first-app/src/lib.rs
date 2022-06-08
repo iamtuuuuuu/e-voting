@@ -1,6 +1,6 @@
 use anchor_lang::prelude::*;
 
-declare_id!("Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS");
+declare_id!("GkztqhmR3FE9iFrAyCHDcVMfCJcJ56HCxmoTtKWTTtMn");
 
 pub mod schema;
 pub use schema::*;
@@ -15,7 +15,11 @@ pub use errors::*;
 pub mod first_app {
     use super::*;
 
-    pub fn initialize_candidate(ctx: Context<InitializeCandidate>, start_date: i64, end_date: i64) -> Result<()> {
+    pub fn initialize_candidate(
+        ctx: Context<InitializeCandidate>,
+        start_date: i64,
+        end_date: i64,
+    ) -> Result<()> {
         initialize_candidate::exec(ctx, start_date, end_date)
     }
 

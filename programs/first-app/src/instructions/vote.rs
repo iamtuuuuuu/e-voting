@@ -17,7 +17,7 @@ pub struct Vote<'info> {
     pub treasurer: AccountInfo<'info>,
     pub mint: Box<Account<'info, token::Mint>>,
 
-    #[account(mut, associated_token::mint = mint, associated_token::authority = authority)]
+    #[account(mut, associated_token::mint = mint, associated_token::authority = treasurer)]
     pub candidate_token_account: Account<'info, token::TokenAccount>,
 
     // Địa chỉ phiếu bầu của người đi bầu và cũng là một PDA.
