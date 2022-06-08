@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactDOM from 'react-dom/client'
+import ReactDOM from 'react-dom'
 
 import { Provider } from 'react-redux'
 import { WalletKitProvider } from '@gokiprotocol/walletkit'
@@ -11,16 +11,15 @@ import { store } from './store'
 
 import './index.css'
 
-const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
-
-root.render(
+ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <WalletKitProvider defaultNetwork='devnet' app={{ name: 'My App' }}>
         <App />
       </WalletKitProvider>
     </Provider>
-  </React.StrictMode>
+  </React.StrictMode>,
+  document.getElementById('root')
 )
 
 // If you want to start measuring performance in your app, pass a function
