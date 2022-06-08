@@ -8,7 +8,7 @@ export const DEFAULT_CLUSTER = 'devnet'
 export const PROGRAM_ADDRESS = new anchor.web3.PublicKey('GkztqhmR3FE9iFrAyCHDcVMfCJcJ56HCxmoTtKWTTtMn')
 export const NODE_URL = clusterApiUrl(DEFAULT_CLUSTER)
 
-export type candidate = {
+export type Candidate = {
   address: string
   mint: string
   amount: number
