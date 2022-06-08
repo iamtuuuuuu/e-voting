@@ -26,7 +26,7 @@ pub struct Vote<'info> {
     #[account(
         init_if_needed, payer = authority,
         space = Ballot::SIZE,
-        seed=[b"ballot".as_ref(), &candidate.key().to_bytes(), &authority.key().to_bytes()],
+        seeds=[b"ballot".as_ref(), &candidate.key().to_bytes(), &authority.key().to_bytes()],
         bump
     )]
     // Địa chỉ ví của cử tri chứa loại token dùng để bầu cử (tương ứng với mint trong thông tin ứng viên).
@@ -47,7 +47,7 @@ pub fn exec(ctx: Context<Vote>, amount: u64) -> Result<()> {
 
     let now = Clock::get().unwrap().unix_timestamp;
     if now < candidate.start_date || now > candidate.end_date {
-        err!(ErrorCode::NotActiveCandidate)
+        return err!(ErrorCode::NotActiveCandidate);
     }
 
     let transfer_ctx = CpiContext::new(
@@ -58,7 +58,7 @@ pub fn exec(ctx: Context<Vote>, amount: u64) -> Result<()> {
             authority: ctx.accounts.authority.to_account_info(),
         },
     );
-    token::transfer(transfer_ctx, amount);
+    token::transfer(transfer_ctx, amount)?;
 
     candidate.amount += amount;
 
