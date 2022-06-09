@@ -1,6 +1,7 @@
 {
   "name": "app",
   "dependencies": {
+    "@ant-design/icons": "^4.7.0",
     "@emotion/react": "^11.8.1",
     "@emotion/styled": "^11.8.1",
     "@gokiprotocol/walletkit": "^1.6.4",

@@ -5,7 +5,7 @@ import { IDL } from './idl'
 
 export const DEFAULT_COMMITMENT = 'confirmed'
 export const DEFAULT_CLUSTER = 'devnet'
-export const PROGRAM_ADDRESS = new anchor.web3.PublicKey('GkztqhmR3FE9iFrAyCHDcVMfCJcJ56HCxmoTtKWTTtMn')
+export const PROGRAM_ADDRESS = new anchor.web3.PublicKey('C3uNhNBaTinf2BGjsfPu21DrWRtFvDtbdghWqVpCtij')
 export const NODE_URL = clusterApiUrl(DEFAULT_CLUSTER)
 
 export type Candidate = {
